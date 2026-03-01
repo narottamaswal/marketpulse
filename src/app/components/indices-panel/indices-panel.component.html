@@ -1,0 +1,20 @@
+<!-- src/app/components/indices-panel/indices-panel.component.html -->
+<section class="indices-section">
+  <div class="section-header">
+    <h2 class="section-title">Market Indices</h2>
+    <div class="sentiment-badge" [class]="'badge-' + (openingSentiment.toLowerCase().includes('gap') ? 'bearish' : 'neutral')">
+      {{ openingSentiment }}
+    </div>
+  </div>
+
+  <div class="indices-grid">
+    <div class="index-card" [class]="'trend-' + card.trend" *ngFor="let card of cards">
+      <div class="index-label">{{ card.label }}</div>
+      <div class="index-value">{{ card.value }}</div>
+      <div class="index-forecast" *ngIf="card.forecast">
+        <span class="trend-arrow">{{ card.trend === 'bearish' ? '▼' : card.trend === 'bullish' ? '▲' : '◆' }}</span>
+        {{ card.forecast }}
+      </div>
+    </div>
+  </div>
+</section>

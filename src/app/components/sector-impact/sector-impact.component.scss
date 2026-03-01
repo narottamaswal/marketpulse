@@ -1,0 +1,128 @@
+// src/app/components/sector-impact/sector-impact.component.scss
+.sector-section {
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.sector-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.column-header {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &.positive { color: var(--green); }
+  &.negative { color: var(--red); }
+}
+
+.col-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.positive-dot { background: var(--green); }
+  &.negative-dot { background: var(--red); }
+}
+
+.sector-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sector-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color 0.2s;
+
+  &:hover { border-color: var(--border-hover); }
+
+  &.positive { border-left: 3px solid var(--green); }
+  &.negative { border-left: 3px solid var(--red); }
+}
+
+.sector-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.sector-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.sector-signal {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+
+  &.positive-signal {
+    background: rgba(39, 174, 96, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(39, 174, 96, 0.2);
+  }
+
+  &.negative-signal {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--red);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+  }
+}
+
+.stock-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.sector-reason {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .sector-columns {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,46 @@
+<!-- src/app/components/sector-impact/sector-impact.component.html -->
+<section class="sector-section">
+  <h2 class="section-title">Sectoral Impact</h2>
+
+  <div class="sector-columns">
+    <!-- Positive -->
+    <div class="sector-column">
+      <div class="column-header positive">
+        <span class="col-dot positive-dot"></span>
+        Positive Sentiment
+      </div>
+      <div class="sector-cards">
+        <div class="sector-card positive" *ngFor="let s of positives">
+          <div class="sector-top">
+            <span class="sector-name">{{ s.sector }}</span>
+            <span class="sector-signal positive-signal">▲ LONG</span>
+          </div>
+          <div class="stock-chips">
+            <span class="chip" *ngFor="let stock of s.stocks">{{ stock }}</span>
+          </div>
+          <p class="sector-reason">{{ s.reason }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Negative -->
+    <div class="sector-column">
+      <div class="column-header negative">
+        <span class="col-dot negative-dot"></span>
+        Negative Sentiment
+      </div>
+      <div class="sector-cards">
+        <div class="sector-card negative" *ngFor="let s of negatives">
+          <div class="sector-top">
+            <span class="sector-name">{{ s.sector }}</span>
+            <span class="sector-signal negative-signal">▼ AVOID</span>
+          </div>
+          <div class="stock-chips">
+            <span class="chip" *ngFor="let stock of s.stocks">{{ stock }}</span>
+          </div>
+          <p class="sector-reason">{{ s.reason }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+// src/app/components/indices-panel/indices-panel.component.scss
+.indices-section {
+  margin-bottom: 28px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.sentiment-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+
+  &.badge-bearish {
+    background: rgba(231, 76, 60, 0.12);
+    color: var(--red);
+    border: 1px solid rgba(231, 76, 60, 0.25);
+  }
+
+  &.badge-neutral {
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+}
+
+.indices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.index-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  &.trend-bearish::before { background: var(--red); }
+  &.trend-bullish::before { background: var(--green); }
+  &.trend-warning::before { background: var(--amber); }
+  &.trend-neutral::before { background: var(--border); }
+}
+
+.index-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.index-value {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.index-forecast {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.trend-arrow {
+  font-size: 0.6rem;
+  margin-right: 3px;
+
+  .trend-bearish & { color: var(--red); }
+  .trend-bullish & { color: var(--green); }
+  .trend-warning & { color: var(--amber); }
+}
+
+@media (max-width: 900px) {
+  .indices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .indices-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .index-value {
+    font-size: 0.95rem;
+  }
+}

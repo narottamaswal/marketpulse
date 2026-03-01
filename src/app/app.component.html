@@ -1,0 +1,74 @@
+<!-- src/app/app.component.html -->
+<div class="app-shell">
+
+  <!-- Header -->
+  <app-header
+    *ngIf="marketData"
+    [triggers]="marketData.market_context.primary_triggers"
+    [vixStatus]="marketData.market_context.vix_status"
+    [lastUpdated]="lastUpdated">
+  </app-header>
+
+  <!-- Loading state -->
+  <div class="state-overlay" *ngIf="loading">
+    <div class="loader-box">
+      <div class="loader-spinner"></div>
+      <span>Fetching market data&hellip;</span>
+    </div>
+  </div>
+
+  <!-- Error state -->
+  <div class="state-overlay" *ngIf="error && !loading">
+    <div class="error-box">
+      <span class="error-icon">⚠</span>
+      <span>{{ error }}</span>
+      <button class="retry-btn" (click)="loadData()">Retry</button>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <main class="main-content" *ngIf="marketData && !loading">
+
+    <!-- Indices Panel -->
+    <app-indices-panel
+      [niftyClose]="marketData.market_context.nifty_50_last_close"
+      [sensexClose]="marketData.market_context.sensex_last_close"
+      [indexForecast]="marketData.stock_market_strategy.index_forecast"
+      [vixStatus]="marketData.market_context.vix_status">
+    </app-indices-panel>
+
+    <!-- Commodities -->
+    <section class="commodity-section">
+      <h2 class="section-title">MCX Commodities · INR</h2>
+      <div class="commodity-grid">
+        <app-commodity-card
+          *ngFor="let c of commodities"
+          [name]="c.name"
+          [icon]="c.icon"
+          [exchange]="c.exchange"
+          [data]="getCommodity(c.key)">
+        </app-commodity-card>
+      </div>
+    </section>
+
+    <!-- Sector Impact -->
+    <app-sector-impact
+      [sectoralImpact]="marketData.stock_market_strategy.sectoral_impact">
+    </app-sector-impact>
+
+    <!-- Currency Panel -->
+    <app-currency-panel
+      [data]="marketData.currency_impact">
+    </app-currency-panel>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span>MarketPulse India</span>
+      <span class="footer-divider">·</span>
+      <span>NSE · BSE · MCX</span>
+      <span class="footer-divider">·</span>
+      <span>For informational purposes only. Not financial advice.</span>
+    </footer>
+
+  </main>
+</div>

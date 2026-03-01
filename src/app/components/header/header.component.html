@@ -1,0 +1,25 @@
+<!-- src/app/components/header/header.component.html -->
+<header class="header">
+  <div class="header-brand">
+    <span class="brand-logo">
+      <span class="logo-mp">Market</span><span class="logo-pulse">Pulse</span>
+    </span>
+    <span class="brand-sub">NSE · BSE · MCX</span>
+  </div>
+
+  <div class="header-triggers" *ngIf="triggers.length">
+    <span class="trigger-label">
+      <span class="live-dot"></span> LIVE TRIGGERS
+    </span>
+    <div class="trigger-list">
+      <span class="trigger-item" *ngFor="let t of triggers">⚠ {{ t }}</span>
+    </div>
+  </div>
+
+  <div class="header-meta">
+    <div class="vix-pill" [class.elevated]="vixStatus.toLowerCase().includes('elevated')">
+      VIX · {{ vixStatus }}
+    </div>
+    <div class="meta-time">{{ lastUpdated | date: 'dd MMM yyyy · HH:mm' }} IST</div>
+  </div>
+</header>

@@ -1,0 +1,164 @@
+// src/app/components/commodity-card/commodity-card.component.scss
+.commodity-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hover);
+  }
+
+  // Left accent bar by trend
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px; bottom: 12px;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+  }
+
+  &.bull::before, &.steep-bull::before { background: var(--green); }
+  &.bear::before { background: var(--red); }
+  &.neutral::before { background: var(--border); }
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.card-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.card-exchange {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.prediction-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &.badge-bull, &.badge-steep-bull {
+    background: rgba(39, 174, 96, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(39, 174, 96, 0.25);
+  }
+
+  &.badge-bear {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--red);
+    border: 1px solid rgba(231, 76, 60, 0.25);
+  }
+}
+
+.badge-arrow {
+  font-size: 0.55rem;
+}
+
+.card-price {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.card-range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-2);
+  border-radius: 6px;
+  padding: 8px 10px;
+  gap: 8px;
+}
+
+.range-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.range-value {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.card-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+.card-reason {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.card-action {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  &.action-buy {
+    background: rgba(39, 174, 96, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(39, 174, 96, 0.3);
+  }
+
+  &.action-sell {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--red);
+    border: 1px solid rgba(231, 76, 60, 0.25);
+  }
+
+  &.action-hold {
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+}
