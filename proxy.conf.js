@@ -8,7 +8,7 @@ const conf = [
             '/icsesgmanagement',
             '/health',
         ],
-        target: `http://localhost:8080`,
+        target: `https://marketpulse-latest.onrender.com/api/getData`,
         secure: false,
         changeOrigin: false,
         rewrite: {

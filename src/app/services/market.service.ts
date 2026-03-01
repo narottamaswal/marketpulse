@@ -99,7 +99,7 @@ export class MarketService {
    * Falls back to mock data if API is unreachable.
    */
   getData(): Observable<MarketData> {
-    return this.http.get<MarketData>(`http://localhost:8080/api/getData`).pipe(
+    return this.http.get<MarketData>(`https://marketpulse-latest.onrender.com/api/getData`).pipe(
       tap(() => console.log('[MarketService] Data fetched from API')),
       catchError((error: HttpErrorResponse) => {
         console.warn('[MarketService] API unavailable, using mock data.', error.message);
