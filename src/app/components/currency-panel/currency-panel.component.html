@@ -1,0 +1,27 @@
+<!-- src/app/components/currency-panel/currency-panel.component.html -->
+<section class="currency-section" *ngIf="data">
+  <h2 class="section-title">Currency Impact</h2>
+
+  <div class="currency-card">
+    <div class="currency-left">
+      <div class="pair-label">{{ data.pair }}</div>
+      <div class="currency-status" [class]="statusClass">
+        <span class="status-icon">{{ statusIcon }}</span>
+        {{ data.status }}
+      </div>
+      <div class="expected-level">{{ data.expected_level }}</div>
+    </div>
+
+    <div class="currency-divider"></div>
+
+    <div class="currency-right">
+      <div class="reason-label">Analysis</div>
+      <p class="currency-reason">{{ data.reason }}</p>
+
+      <div class="fii-indicator">
+        <span class="fii-dot"></span>
+        FII Outflow Pressure · Emerging Markets
+      </div>
+    </div>
+  </div>
+</section>
