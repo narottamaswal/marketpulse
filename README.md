@@ -5,15 +5,11 @@
 [![Spring Cloud](https://img.shields.io/badge/Spring%20Cloud-Function-green.svg)](https://spring.io/projects/spring-cloud-function)
 [![Gemini AI](https://img.shields.io/badge/AI-Gemini%20Pro-blue.svg)](https://deepmind.google/technologies/gemini/)
 
-In a world where a single headline can shift markets in minutes, staying informed isn't just an advantage—it's a necessity. **MarketPulse** bridges the gap between global geopolitical unrest and your portfolio.
-
 ---
 
 ## 📖 Description
 
 **MarketPulse** is an automated intelligence dashboard that monitors global warfare and geopolitical shifts to predict commodity and stock market movements.
-
-Unlike traditional news tickers, this project uses **GDELT BigQuery** to scrape raw, real-time global events. It then leverages **Gemini AI** to perform a "War-Room" analysis, translating complex conflict data into simple Buy/Sell signals for commodities and the Indian Stock Market. The data is purely informational and updates every 30 minutes via a scheduled cloud synchronization.
 
 ---
 
